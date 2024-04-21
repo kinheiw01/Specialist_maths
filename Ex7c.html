@@ -3,9 +3,65 @@
 <head>
     <title>Ex7C Checklist</title>
     <style>
-        /* Add CSS styling to increase font size */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        #checklistForm {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        input[type="checkbox"] {
+            display: none;
+        }
+        
         label {
-            font-size: 20px; /* Change the value as needed */
+            display: block;
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #555;
+        }
+        
+        label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ccc;
+            border-radius: 3px;
+            background-color: #fff;
+        }
+        
+        input[type="checkbox"]:checked + label:before {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        
+        input[type="checkbox"]:checked + label:after {
+            content: '\2713';
+            position: absolute;
+            top: 0;
+            left: 5px;
+            font-size: 16px;
+            color: #fff;
         }
     </style>
 </head>
@@ -15,19 +71,19 @@
 
 <form id="checklistForm" action="/action_page.php">
     <input type="checkbox" id="item1">
-    <label for="item1">Review the axioms of Boolean algebra</label><br>
+    <label for="item1">Review the axioms of Boolean algebra</label>
     <input type="checkbox" id="item2">
-    <label for="item2">Review Example 6a, 6b, 6c</label><br>
+    <label for="item2">Review Example 6a, 6b, 6c</label>
     <input type="checkbox" id="item3">
-    <label for="item3">Do Example 6d</label><br>
+    <label for="item3">Do Example 6d</label>
     <input type="checkbox" id="item4">
-    <label for="item4">Compare your answer with the textbook's answer (Do not erase or change your answer as it may be correct)</label><br>
+    <label for="item4">Compare your answer with the textbook's answer (Do not erase or change your answer as it may be correct)</label>
     <input type="checkbox" id="item5">
-    <label for="item5">Do Exercise7C: Q1</label><br>
+    <label for="item5">Do Exercise7C: Q1</label>
     <input type="checkbox" id="item6">
-    <label for="item6">Do Exercise7C: Q2</label><br>
+    <label for="item6">Do Exercise7C: Q2</label>
     <input type="checkbox" id="item7">
-    <label for="item7">Do Exercise7C: Q3</label><br>
+    <label for="item7">Do Exercise7C: Q3</label>
 </form>
 
 <script>
