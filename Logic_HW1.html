@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logic_HW1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        #checklistForm {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        input[type="checkbox"] {
+            display: none;
+        }
+        
+        label {
+            display: block;
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #555;
+        }
+        
+        label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ccc;
+            border-radius: 3px;
+            background-color: #fff;
+        }
+        
+        input[type="checkbox"]:checked + label:before {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        
+        input[type="checkbox"]:checked + label:after {
+            content: '\2713';
+            position: absolute;
+            top: 0;
+            left: 5px;
+            font-size: 16px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Ex7C Checklist</h1>
+
+<form id="checklistForm" action="/action_page.php">
+    <input type="checkbox" id="item1">
+    <label for="item1">Review Chapter 7D & 7E</label>
+    <input type="checkbox" id="item2">
+    <label for="item2">Understand "Implication", "Tautology", "Logical equivalent", "Contradiction" </label>
+    <input type="checkbox" id="item3">
+    <label for="item3">Review different types of tautologies in valid argument (pg233)</label>
+    <input type="checkbox" id="item4">
+    <label for="item4">(Optional) Try doing example questions in Chapter 7D & 7E</label>
+    <input type="checkbox" id="item5">
+    <label for="item5">Assignment: Do all the "Logic and Notation" questions in the document</label>
+    <input type="checkbox" id="item6">
+    <label for="item6">(Optional) Try all proof questions after "Logic and Notation"</label>
+</form>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    
+    // Load checklist state from localStorage
+    for (let i = 0; i < checkboxes.length; i++) {
+        const checkbox = checkboxes[i];
+        const key = 'item' + (i + 1);
+        const isChecked = localStorage.getItem(key) === 'true';
+        checkbox.checked = isChecked;
+    }
+    
+    // Add event listener for checkbox clicks
+    document.getElementById('checklistForm').addEventListener('change', function(e) {
+        const checkbox = e.target;
+        const key = checkbox.id;
+        const isChecked = checkbox.checked;
+        
+        // Save state to localStorage
+        localStorage.setItem(key, isChecked);
+    });
+});
+</script>
+
+</body>
+</html>
